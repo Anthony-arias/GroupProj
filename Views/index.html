@@ -1,3 +1,24 @@
+<?php
+$servername = "localhost:3306";
+$username = "root";
+$password = "";
+$db_name = "FITNESSDATABASE";
+$conn="";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password,$db_name);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
+
+
+
+
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -8,15 +29,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-   
+
     <div id="forms" class="row justify-content-center">
-        <form action="/register" method="post" style=" width:40%; height:auto; padding:20px;">
+        <form action="workoutLog.html" method="post" style=" width:40%; height:auto; padding:20px;">
             <h1 class="mt-2">Registration</h1>
             <input type="hidden" name="form_type" value="registration_form" />
 
             <label>Name</label>
             <input type="text" name="user_name" class="form-control" placeholder="Enter name" /> <br />
-            
+
             <label>CWID</label>
             <input type="number" name="user_cwid" class="form-control" placeholder="Enter CWID" /> <br />
 
@@ -38,7 +59,7 @@
             <button type="submit" class="btn btn-primary">Register</button>
         </form>
 
-        <form action="/login" method="post" style=" width:40%; height:auto; padding:20px">
+        <form action="workoutLog.html" method="post" style=" width:40%; height:auto; padding:20px">
             <h1 class="mt-2">Login</h1>
             <input type="hidden" name="form_type" value="login_form" />
 
