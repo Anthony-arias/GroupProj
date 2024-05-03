@@ -1,63 +1,82 @@
-<?php
-$servername = "localhost:3306";
-$username = "root";
-$password = "";
-$db_name = "FITNESSDATABASE";
-$conn="";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password,$db_name);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
-
-
-
-
-?>
 
 <!doctype html>
 <html>
 <head>
-    <title></title>
+    <title>Workout Logs</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        nav.navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-nav .nav-item {
+            margin-right: 15px;
+        }
+
+            .navbar-nav .nav-item:last-child {
+                margin-right: 0;
+            }
+
+        h1 {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #myList {
+            list-style: none;
+            padding: 0;
+        }
+
+            #myList li {
+                margin-bottom: 10px;
+                background-color: #fff;
+                padding: 10px;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+    </style>
 </head>
-<nav class="navbar navbar-expand-lg navbar-light bg-transparent sticky-top">
-
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-
-            <li class="nav-item">
-                <a class="nav-link" href="index.html"> Logout</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="workoutRoutine.html"> Workout Routine</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="workoutLog.html"> Workout logs</a>
-            </li>
-        </ul>
-    </div>
-</nav>
 <body>
-    <div style="width:800px; margin:0 auto;">
-        <h1 class="mt-2">Workout Logs</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent sticky-top">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="workoutRoutine.html">Workout Routine</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="workoutLog.html">Workout Logs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="foodPage.html">Food Info</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Workout Logs</h1>
         <div>
             <ul id="myList"></ul>
             <script>
-                //This is only dummy data, we need to retreive data from backend/server
-                let logs = [{ name: "workout1", repsNumb: "20", setsNumb: "10", date: "01/01/2023" }, { name: "workout2", repsNumb: "10", setsNumb: "5", date: "01/03/2023" }]
-
+                let logs = [
+                    { name: "Quads", repsNumb: "20", setsNumb: "10", date: "01/01/2023" },
+                    { name: "Legs", repsNumb: "10", setsNumb: "5", date: "01/03/2023" }
+                ];
                 let list = document.getElementById("myList");
-                for (i = 0; i < logs.length; ++i) {
+                for (let i = 0; i < logs.length; i++) {
                     let li = document.createElement('li');
-                    li.innerText = "Workout target: " + logs[i].name + " Reps: " + logs[i].repsNumb + " Sets: " + logs[i].setsNumb + " Date: " + logs[i].date;
+                    li.innerText = `Workout target: ${logs[i].name} Reps: ${logs[i].repsNumb} Sets: ${logs[i].setsNumb} Date: ${logs[i].date}`;
                     list.appendChild(li);
                 }
             </script>
@@ -70,6 +89,4 @@ echo "Connected successfully";
 
 </body>
 </html>
-
-
 

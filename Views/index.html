@@ -22,52 +22,99 @@ echo "Connected successfully";
 <!doctype html>
 <html>
 <head>
-    <title></title>
+    <title>User Registration & Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        #forms {
+            margin-top: 50px;
+        }
+
+        .form-container {
+            width: 40%;
+            height: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .form-title {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
     <div id="forms" class="row justify-content-center">
-        <form action="workoutLog.html" method="post" style=" width:40%; height:auto; padding:20px;">
-            <h1 class="mt-2">Registration</h1>
+        <form action="workoutLog.html" method="post" class="form-container">
+            <h1 class="form-title">Registration</h1>
             <input type="hidden" name="form_type" value="registration_form" />
 
-            <label>Name</label>
-            <input type="text" name="user_name" class="form-control" placeholder="Enter name" /> <br />
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="user_name" class="form-control" placeholder="Enter name" />
+            </div>
 
-            <label>CWID</label>
-            <input type="number" name="user_cwid" class="form-control" placeholder="Enter CWID" /> <br />
+            <div class="form-group">
+                <label>CWID</label>
+                <input type="number" name="user_cwid" class="form-control" placeholder="Enter CWID" />
+            </div>
 
-            <label>Password</label>
-            <input type="password" name="user_pw" class="form-control" placeholder="Password" /> <br />
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="user_pw" class="form-control" placeholder="Password" />
+            </div>
 
-            <label>Confirm PW</label>
-            <input type="password" name="user_confirm_pw" class="form-control" placeholder="Confirm Password" /> <br />
+            <div class="form-group">
+                <label>Confirm PW</label>
+                <input type="password" name="user_confirm_pw" class="form-control" placeholder="Confirm Password" />
+            </div>
 
-            <label>Height</label>
-            <input type="number" name="user_height" class="form-control" placeholder="Enter Height" /> <br />
+            <div class="form-group">
+                <label>Height</label>
+                <input type="number" name="user_height" class="form-control" placeholder="Enter Height" />
+            </div>
 
-            <label>Weight</label>
-            <input type="number" name="user_weight" class="form-control" placeholder="Enter Weight" /> <br />
+            <div class="form-group">
+                <label>Weight</label>
+                <input type="number" name="user_weight" class="form-control" placeholder="Enter Weight" />
+            </div>
 
-            <label>Calorie Intake</label>
-            <input type="number" name="user_calorie_intake" class="form-control" placeholder="Enter Calorie Intake" /> <br />
+            <div class="form-group">
+                <label>Calorie Intake</label>
+                <input type="number" name="user_calorie_intake" class="form-control" placeholder="Enter Calorie Intake" />
+            </div>
 
-            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
         </form>
 
-        <form action="workoutLog.html" method="post" style=" width:40%; height:auto; padding:20px">
-            <h1 class="mt-2">Login</h1>
+        <form action="workoutLog.html" method="post" class="form-container">
+            <h1 class="form-title">Login</h1>
             <input type="hidden" name="form_type" value="login_form" />
 
-            <label>CWID</label>
-            <input type="number" name="user_confirm_pw" class="form-control" aria-describedby="emailHelp" placeholder="Enter CWID" /> <br />
-            <label>Password</label>
-            <input type="password" name="user_password" class="form-control" placeholder="Password" /> <br />
-            <button type="submit" class="btn btn-primary">Log in</button>
+            <div class="form-group">
+                <label>CWID</label>
+                <input type="number" name="user_cwid" class="form-control" placeholder="Enter CWID" />
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="user_password" class="form-control" placeholder="Password" />
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Log in</button>
         </form>
     </div>
 
