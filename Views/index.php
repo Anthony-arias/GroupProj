@@ -63,18 +63,15 @@ require("database.php");
                 <input type="password" name="user_pw" class="form-control" placeholder="Password" />
             </div>
 
-            <div class="form-group">
-                <label>Confirm PW</label>
-                <input type="password" name="user_confirm_pw" class="form-control" placeholder="Confirm Password" />
-            </div>
+            
 
             <div class="form-group">
-                <label>Height</label>
+                <label>Height (in)</label>
                 <input type="number" name="user_height" class="form-control" placeholder="Enter Height" />
             </div>
 
             <div class="form-group">
-                <label>Weight</label>
+                <label>Weight (lbs)</label>
                 <input type="number" name="user_weight" class="form-control" placeholder="Enter Weight" />
             </div>
 
@@ -92,7 +89,7 @@ require("database.php");
 
             <div class="form-group">
                 <label>CWID</label>
-                <input type="number" name="user_cwid" class="form-control" placeholder="Enter CWID" />
+                <input type="number" name="user_ID" class="form-control" placeholder="Enter CWID" />
             </div>
 
             <div class="form-group">
@@ -111,32 +108,38 @@ require("database.php");
 </body>
 </html>
 
-
 <?php
 if($_SERVER["REQUEST_METHOD"]=="POST")
 {
-
+    
     if(isset($_POST['form_type']) == 'registration_form' )
     {
-
+        
         $name = $_POST["user_name"];
         $cwid = $_POST["user_cwid"];
         $password = $_POST["user_pw"];
-
+        
         $height = $_POST["user_height"];
         $weight = $_POST["user_weight"];
         $calorieIntake = $_POST["user_calorie_intake"];
+        
+        $bmi = 703 * ($weight / ($height * $height));
+       
+        $sql = "INSERT INTO USERS(UNAME,CWID,PASSWORDS, HEIGHT, WEIGHT,CAL_INTAKE,BMI) 
+            VALUES ('$name','$cwid','$password','$height','$weight','$calorieIntake','$bmi')";
 
-
-
-        $sql = "INSERT INTO USERS(UNAME,CWID,PASSWORDS, HEIGHT, WEIGHT,CAL_INTAKE) VALUES ('$name','$cwid','$password','$height','$weight','$calorieIntake')";
         mysqli_query($conn,$sql);
-
+    
     }
-
-
+    
+ 
 }
 
+/*<div class="form-group">
+<label>Confirm PW</label>
+<input type="password" name="user_confirm_pw" class="form-control" placeholder="Confirm Password" />
+</div>
+*/
 
 mysqli_close($conn);
 ?>

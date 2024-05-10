@@ -1,122 +1,70 @@
-<?php
-$servername = "localhost:3306";
-$username = "root";
-$password = "";
-$db_name = "FITNESSDATABASE";
-$conn="";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password,$db_name);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
-
-
-
-
-?>
-
 <!doctype html>
 <html>
 <head>
-    <title>Workout Routine</title>
+    <title></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            padding: 0;
-        }
-
-        nav.navbar {
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar-nav .nav-item {
-            margin-right: 15px;
-        }
-
-            .navbar-nav .nav-item:last-child {
-                margin-right: 0;
-            }
-
-        #forms {
-            margin-top: 50px;
-        }
-
-        form {
-            width: 40%;
-            height: auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            margin-top: 0;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-    </style>
 </head>
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent sticky-top">
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.html"> Logout</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="workoutRoutine.html"> Workout Routine</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="workoutLog.html"> Workout logs</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-transparent sticky-top">
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Logout</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="workoutRoutine.html">Workout Routine</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="workoutLog.html">Workout Logs</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="foodPage.html">Food Info</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+
     <div id="forms" class="row justify-content-center">
-        <form action="workoutLog.html" method="post">
+        <form action="workoutLog.html" method="post" style=" width:40%; height:auto; padding:20px;">
             <h1 class="mt-2">Workout Routine</h1>
             <input type="hidden" name="form_type" value="routine_form" />
-            <div class="form-group">
-                <label for="workout_target">Workout target</label>
-                <select id="workout_target" name="NameTarget" class="form-control">
-                    <option value="deltoids">Deltoids</option>
-                    <option value="biceps">Biceps</option>
-                    <option value="chest">Chest</option>
-                    <option value="forearm">Forearm</option>
-                    <option value="sideabs">Side Abs</option>
-                    <option value="abdominal">Abdominal</option>
-                    <option value="quads">Quads</option>
-                    <option value="calfs">Calves</option>
-                    <option value="tibialanterior">Tibialis Anterior</option>
-                    <option value="upper_back">Upper Back</option>
-                    <option value="middle_back">Middle Back</option>
-                    <option value="lower_back">Lower Back</option>
-                    <option value="triceps">Triceps</option>
-                    <option value="hamstrings">Hamstrings</option>
-                    <option value="glutes">Glutes</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+
+
+            <label for="WorkoutTarget">Workout target</label>
+            <select id="workout_target" name="NameTarget" class="form-control">
+                <option value="deltoids">deltoids</option>
+                <option value="biceps">biceps</option>
+                <option value="chest">chest</option>
+                <option value="forearm">forearm</option>
+                <option value="sideabs">sideabs</option>
+                <option value="abdominal">abdominal</option>
+
+                <option value="quads">quads</option>
+
+                <option value="calfs">calfs</option>
+
+                <option value="tibialanterior">tibialanterior</option>
+                <option value="upper_back">upper_back</option>
+                <option value="middle_back">middle_back</option>
+                <option value="lower_back">lower_back</option>
+                <option value="triceps">triceps</option>
+                <option value="hamstrings">hamstrings</option>
+                <option value="glutes">glutes</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Submit</button>
+
         </form>
+
+
+
     </div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 </body>
 </html>
-
 
